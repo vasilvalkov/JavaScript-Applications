@@ -1,0 +1,21 @@
+#root {
+    width: 80%;
+}
+
+#mapWrapper {
+    height: 400px;
+    width: 100%;
+}
+
+button {
+    height: 50px;
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.btnInline {
+    display: inline-block;
+    margin: 0 0;
+    padding: 0 0;
+    width: 49.8%;
+}
