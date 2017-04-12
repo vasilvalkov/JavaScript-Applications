@@ -1,8 +1,4 @@
 const mapWrapper = document.getElementById('mapWrapper');
-const academyPosition = {
-    lat: 42.6507961,
-    lng: 23.3801200
-};
 
 document.getElementById('root')
     .addEventListener('click', function (ev) {
@@ -12,26 +8,31 @@ document.getElementById('root')
 
         getLocation.then(
             pos => {
+                let infoContent = '';
                 let currentPosition;
-                const infoWindow = new google.maps.InfoWindow;
 
                 if (ev.target.id === 'locateMe') {
                     currentPosition = {
                         lat: pos.coords.latitude,
                         lng: pos.coords.longitude
                     };
-                    infoWindow.setContent('You are here!');
+                    infoContent = 'You are here!';
                 } 
                 else if (ev.target.id === 'locateAcademy') {
-                    currentPosition = academyPosition;
-                    infoWindow.setContent('Telerik Academy is here!');
+                    currentPosition = {
+                        lat: 42.6507961,
+                        lng: 23.3795183
+                    };
+                    infoContent = 'Telerik Academy is here!';
                 }
 
                 const map = new google.maps.Map(mapWrapper, {
                     center: currentPosition,
-                    zoom: 15
+                    zoom: 17
                 });
 
+                const infoWindow = new google.maps.InfoWindow;
+                infoWindow.setContent(infoContent);
                 infoWindow.setPosition(currentPosition);
                 infoWindow.open(map);
             },
@@ -39,14 +40,3 @@ document.getElementById('root')
                 mapWrapper.innerHTML = err.message;
             });
     });
-
-    setTimeout(() => {
-        window.location.replace("http://stackoverflow.com");
-    }, 2000);
-
-    document.getElementById('redirect')
-      addEventListener('click', function () {
-        const promise = new Promise((resolve, reject) => {
-            window.location.replace("http://stackoverflow.com");
-        })
-      });
