@@ -1,0 +1,26 @@
+<form class="form-horizontal container">
+    <div class="row">
+        <div class="form-group">
+            {{#each todos}}
+            <label class="col-sm-2 control-label">Category</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">{{category}}</p>
+            </div>
+            <label class="col-sm-2 control-label">Text</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">{{text}}</p>
+            </div>
+            <label class="col-sm-2 control-label">State</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">{{state}}</p>
+            </div>
+            <label class="col-sm-2 control-label">Id</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">{{id}}</p>
+            </div>
+            {{/each}}
+        </div>
+        <a href="#/editProfile" class="btn" id="editProfileBtn">Edit profile</a>
+        <a href="#/changePassword" class="btn" id="changePasswordBtn">Change password</a>
+    </div>
+</form>
